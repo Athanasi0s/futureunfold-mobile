@@ -1,0 +1,205 @@
+{
+  "cli": {
+    "version": ">= 16.0.0"
+  },
+  "build": {
+    "panathenea-development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "TENANT": "panathenea",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-panathenea.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "panathenea-preview": {
+      "distribution": "internal",
+      "env": {
+        "TENANT": "panathenea",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-panathenea.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "panathenea-production": {
+      "channel": "production",
+      "env": {
+        "TENANT": "panathenea",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-panathenea.fly.dev"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {}
+    },
+    "techsaloniki-development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "TENANT": "techsaloniki",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-techsaloniki.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "techsaloniki-preview": {
+      "distribution": "internal",
+      "env": {
+        "TENANT": "techsaloniki",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-techsaloniki.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "techsaloniki-production": {
+      "channel": "techsaloniki-production",
+      "env": {
+        "TENANT": "techsaloniki",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-techsaloniki.fly.dev"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {}
+    },
+    "reworks-development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "TENANT": "reworks",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-reworks.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "reworks-preview": {
+      "distribution": "internal",
+      "env": {
+        "TENANT": "reworks",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-reworks.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "reworks-production": {
+      "channel": "reworks-production",
+      "env": {
+        "TENANT": "reworks",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-reworks.fly.dev"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {}
+    },
+    "primer-development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "TENANT": "primer",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-primer.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "primer-preview": {
+      "distribution": "internal",
+      "env": {
+        "TENANT": "primer",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-primer.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "primer-production": {
+      "channel": "primer-production",
+      "env": {
+        "TENANT": "primer",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-primer.fly.dev"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {}
+    },
+    "future-unfold-development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "TENANT": "future-unfold",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-future-unfold.fly.dev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "future-unfold-preview": {
+      "distribution": "internal",
+      "env": {
+        "TENANT": "future-unfold",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-future-unfold.fly.dev",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
+      }
+    },
+    "future-unfold-production": {
+      "channel": "future-unfold-production",
+      "env": {
+        "TENANT": "future-unfold",
+        "EXPO_PUBLIC_API_BASE_URL": "https://festapp-api-future-unfold.fly.dev"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {}
+    }
+  },
+  "submit": {
+    "panathenea-production": {},
+    "techsaloniki-production": {},
+    "reworks-production": {},
+    "primer-production": {},
+    "future-unfold-production": {}
+  }
+}

@@ -1,0 +1,49 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      visible:
+        id: "tab-home"
+    commands:
+      - tapOn:
+          text: "Home"
+      - assertVisible:
+          id: "home-screen"
+- runFlow:
+    when:
+      visible:
+        id: "tab-schedule"
+    commands:
+      - tapOn:
+          text: "Schedule"
+      - assertVisible:
+          id: "schedule-screen"
+- runFlow:
+    when:
+      visible:
+        id: "tab-map"
+    commands:
+      - tapOn:
+          text: "Map"
+      - assertVisible:
+          id: "map-screen"
+- runFlow:
+    when:
+      visible:
+        id: "tab-badge"
+    commands:
+      - tapOn:
+          text: "Badge"
+      - assertVisible:
+          id: "badge-screen"
+- runFlow:
+    when:
+      visible:
+        id: "tab-networking"
+    commands:
+      - tapOn:
+          text: "Networking"
+      - assertVisible:
+          id: "networking-screen"
+- assertVisible:
+    id: "tab-home"

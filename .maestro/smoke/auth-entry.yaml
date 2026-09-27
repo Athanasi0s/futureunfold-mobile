@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      visible:
+        id: "signup-screen"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "auth-signup-login-link"
+          direction: DOWN
+      - tapOn:
+          text: "auth-signup-login-link"
+- assertVisible:
+    id: "login-screen"
+- assertVisible:
+    id: "login-email-input"
+- assertVisible:
+    id: "login-password-input"
+- assertVisible:
+    id: "login-submit-button"

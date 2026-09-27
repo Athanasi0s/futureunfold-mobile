@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094091305732",
+    "project_id": "panathenea-c958f",
+    "storage_bucket": "panathenea-c958f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094091305732:android:a996337b2d8cf17c8b1651",
+        "android_client_info": {
+          "package_name": "com.festapp.festapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg1CeHzUwpueEIx-3gWZAL6S9E9XlHI1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

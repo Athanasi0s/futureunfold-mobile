@@ -1,0 +1,138 @@
+export const darkMapStyle = {
+  version: 8,
+  name: "Festapp Dark",
+  sources: {
+    "mapbox-streets": {
+      type: "vector",
+      url: "mapbox://mapbox.mapbox-streets-v8",
+    },
+  },
+  sprite: "mapbox://sprites/mapbox/dark-v11",
+  glyphs: "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  layers: [
+    {
+      id: "background",
+      type: "background",
+      paint: { "background-color": "#0D1117" },
+    },
+    {
+      id: "water",
+      type: "fill",
+      source: "mapbox-streets",
+      "source-layer": "water",
+      paint: { "fill-color": "#0A1628", "fill-opacity": 0.6 },
+    },
+    {
+      id: "landuse-park",
+      type: "fill",
+      source: "mapbox-streets",
+      "source-layer": "landuse",
+      filter: ["==", "class", "park"],
+      paint: { "fill-color": "#0B1A0B", "fill-opacity": 0.3 },
+    },
+    {
+      id: "building",
+      type: "fill",
+      source: "mapbox-streets",
+      "source-layer": "building",
+      paint: {
+        "fill-color": "#13171F",
+        "fill-opacity": 0.6,
+        "fill-outline-color": "#1C2333",
+      },
+    },
+    {
+      id: "roads-minor",
+      type: "line",
+      source: "mapbox-streets",
+      "source-layer": "road",
+      filter: ["in", "class", "street", "street_limited", "service", "track", "path"],
+      paint: {
+        "line-color": "#1C2333",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          12, 0.3,
+          15, 1,
+          18, 3,
+        ],
+        "line-opacity": 0.6,
+      },
+    },
+    {
+      id: "roads-major",
+      type: "line",
+      source: "mapbox-streets",
+      "source-layer": "road",
+      filter: ["in", "class", "primary", "secondary", "tertiary", "motorway", "trunk"],
+      paint: {
+        "line-color": "#252D3A",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          10, 0.5,
+          15, 2.5,
+          18, 6,
+        ],
+        "line-opacity": 0.7,
+      },
+    },
+    {
+      id: "place-labels",
+      type: "symbol",
+      source: "mapbox-streets",
+      "source-layer": "place_label",
+      layout: {
+        "text-field": ["get", "name"],
+        "text-size": [
+          "interpolate", ["linear"], ["zoom"],
+          10, 10,
+          14, 12,
+          18, 14,
+        ],
+        "text-font": ["DIN Pro Medium", "Arial Unicode MS Regular"],
+        "text-max-width": 8,
+      },
+      paint: {
+        "text-color": "#4A5568",
+        "text-halo-color": "#0D1117",
+        "text-halo-width": 1.5,
+      },
+    },
+    {
+      id: "poi-labels",
+      type: "symbol",
+      source: "mapbox-streets",
+      "source-layer": "poi_label",
+      minzoom: 15,
+      layout: {
+        "text-field": ["get", "name"],
+        "text-size": 10,
+        "text-font": ["DIN Pro Regular", "Arial Unicode MS Regular"],
+        "text-max-width": 6,
+      },
+      paint: {
+        "text-color": "#3A4250",
+        "text-halo-color": "#0D1117",
+        "text-halo-width": 1,
+      },
+    },
+    {
+      id: "road-labels",
+      type: "symbol",
+      source: "mapbox-streets",
+      "source-layer": "road",
+      minzoom: 14,
+      layout: {
+        "text-field": ["get", "name"],
+        "text-size": 9,
+        "text-font": ["DIN Pro Regular", "Arial Unicode MS Regular"],
+        "symbol-placement": "line",
+        "text-rotation-alignment": "map",
+      },
+      paint: {
+        "text-color": "#2D3748",
+        "text-halo-color": "#0D1117",
+        "text-halo-width": 1,
+      },
+    },
+  ],
+};

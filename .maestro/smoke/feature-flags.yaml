@@ -1,0 +1,16 @@
+appId: ${APP_ID}
+---
+- assertVisible:
+    id: "tab-home"
+- assertVisible:
+    id: "tab-schedule"
+- assertNotVisible:
+    id: "tab-map"
+- assertNotVisible:
+    id: "tab-badge"
+- assertVisible:
+    id: "tab-networking"
+- tapOn:
+    text: "Home"
+- assertVisible:
+    id: "home-screen"

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1012416054420",
+    "project_id": "primer-festival",
+    "storage_bucket": "primer-festival.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012416054420:android:61d6c4ccfa9df86d316081",
+        "android_client_info": {
+          "package_name": "com.festapp.primer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs2AEXXJCFNy7rVCoaa896BUqmzB_5EsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

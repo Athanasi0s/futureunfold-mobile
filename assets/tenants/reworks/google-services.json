@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253654641029",
+    "project_id": "reworks-14694",
+    "storage_bucket": "reworks-14694.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253654641029:android:824399c9483b57b360fcec",
+        "android_client_info": {
+          "package_name": "com.festapp.reworks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU1dxSqHhgnKTNn2LFUBD3KZ_qI7H6fnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

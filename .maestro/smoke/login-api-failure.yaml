@@ -1,0 +1,30 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      visible:
+        id: "signup-screen"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "auth-signup-login-link"
+          direction: DOWN
+      - tapOn:
+          text: "auth-signup-login-link"
+- assertVisible:
+    id: "login-screen"
+- tapOn:
+    id: "login-email-input"
+- eraseText
+- setClipboard: "offline-smoke@example.com"
+- pasteText
+- tapOn:
+    id: "login-password-input"
+- eraseText
+- setClipboard: "password123"
+- pasteText
+- hideKeyboard
+- tapOn:
+    id: "login-submit-button"
+- assertVisible: "Connection issue"
+- assertVisible: "We couldn't reach the server. Check your connection and try again."

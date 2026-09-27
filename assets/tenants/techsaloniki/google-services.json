@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "472738146753",
+    "project_id": "techsaloniki-f4143",
+    "storage_bucket": "techsaloniki-f4143.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472738146753:android:769637ad81849fbc3f2740",
+        "android_client_info": {
+          "package_name": "com.festapp.techsaloniki"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxwm9nPieTOelF-W-trHBkn_qwi53rHxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

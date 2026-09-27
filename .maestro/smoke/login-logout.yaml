@@ -1,0 +1,59 @@
+appId: ${APP_ID}
+---
+- runFlow:
+    when:
+      visible:
+        id: "tab-home"
+    commands:
+      - tapOn:
+          text: "Home"
+      - assertVisible:
+          id: "home-screen"
+      - tapOn:
+          id: "home-menu-button"
+      - assertVisible:
+          id: "app-drawer"
+      - tapOn:
+          id: "drawer-sign-out-button"
+      - tapOn:
+          text: "Sign Out"
+          index: 1
+- runFlow:
+    when:
+      visible:
+        id: "signup-screen"
+    commands:
+      - scrollUntilVisible:
+          element:
+            text: "auth-signup-login-link"
+          direction: DOWN
+      - tapOn:
+          text: "auth-signup-login-link"
+- assertVisible:
+    id: "login-screen"
+- tapOn:
+    id: "login-email-input"
+- eraseText
+- setClipboard: ${E2E_LOGIN_EMAIL}
+- pasteText
+- tapOn:
+    id: "login-password-input"
+- eraseText
+- setClipboard: ${E2E_LOGIN_PASSWORD}
+- pasteText
+- hideKeyboard
+- tapOn:
+    id: "login-submit-button"
+- assertVisible:
+    id: "home-screen"
+- tapOn:
+    id: "home-menu-button"
+- assertVisible:
+    id: "app-drawer"
+- tapOn:
+    id: "drawer-sign-out-button"
+- tapOn:
+    text: "Sign Out"
+    index: 1
+- assertVisible:
+    id: "login-screen"
