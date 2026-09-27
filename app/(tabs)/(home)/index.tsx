@@ -45,6 +45,23 @@ const AWARDS: {
   { tier: "bronze", title: "Event Awards", category: "Conferences, Meetings, Expos" },
 ];
 
+const FUTURE_UNFOLD_AWARDS = [
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-01.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-02.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-03.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-04.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-05.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-06.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-07.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-08.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-09.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-10.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-11.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-12.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-13.png"),
+  require("@/assets/tenants/future-unfold/awards/future-unfold-vraveia-14.png"),
+];
+
 export default function HomeScreen() {
   const { t } = useTranslation();
   const router = useRouter();
@@ -171,6 +188,36 @@ export default function HomeScreen() {
               </View>
             )}
 
+            {isFutureUnfold && (
+              <View style={styles.section}>
+                <ThemedText style={styles.sectionTitle}>{t("home.ourAwards")}</ThemedText>
+                <FlatList
+                  data={FUTURE_UNFOLD_AWARDS}
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={styles.horizontalListContent}
+                  keyExtractor={(_, index) => String(index)}
+                  snapToInterval={Math.min(width - 64, 360) + 12}
+                  decelerationRate="fast"
+                  renderItem={({ item, index }) => (
+                    <View
+                      style={[
+                        styles.futureAwardCard,
+                        { width: Math.min(width - 64, 360) },
+                      ]}
+                    >
+                      <Image
+                        source={item}
+                        style={styles.futureAwardImage}
+                        contentFit="contain"
+                        accessibilityLabel={t("home.ourAwards") + " " + (index + 1) + " / " + FUTURE_UNFOLD_AWARDS.length}
+                      />
+                    </View>
+                  )}
+                />
+              </View>
+            )}
+
             {/* For You Section */}
             {scheduleEnabled && recommendationsEnabled && (
               <View style={styles.section}>
@@ -242,7 +289,7 @@ export default function HomeScreen() {
             )}
 
             {/* Our Awards Section */}
-            <View style={styles.section}>
+            {!isFutureUnfold && <View style={styles.section}>
               <ThemedText style={styles.sectionTitle}>{t("home.ourAwards")}</ThemedText>
               <FlatList
                 data={AWARDS}
@@ -252,7 +299,7 @@ export default function HomeScreen() {
                 keyExtractor={(item) => `${item.title}-${item.category}`}
                 renderItem={({ item }) => <AwardCard award={item} />}
               />
-            </View>
+            </View>}
 
             {/* Speakers Section */}
             {exhibitorsEnabled && (
@@ -562,6 +609,19 @@ const createStyles = (colors: ReturnType<typeof useColors>) =>
       fontSize: 16,
       fontWeight: "700",
       color: colors.text,
+    },
+
+    futureAwardCard: {
+      height: 280,
+      borderRadius: 16,
+      backgroundColor: colors.cardBackground,
+      borderWidth: 1,
+      borderColor: colors.cardBorder,
+      overflow: "hidden",
+    },
+    futureAwardImage: {
+      width: "100%",
+      height: "100%",
     },
 
     // Sections

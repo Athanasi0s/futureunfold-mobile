@@ -1,12 +1,8 @@
 import { TenantBackgroundArt } from "@/components/tenant-background-art";
 import { ThemedText } from "@/components/themed-text";
-import {
-  getTenantAgendaSource,
-  getTenantBackgroundSource,
-} from "@/constants/tenant-assets";
+import { getTenantBackgroundSource } from "@/constants/tenant-assets";
 import { useColors } from "@/hooks/use-colors";
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -32,89 +28,98 @@ const AGENDA: AgendaItem[] = [
   { time: "18:00", title: { en: "Welcome", el: "Καλωσόρισμα" } },
   {
     time: "18:30",
-    title: { en: "CEO Welcome", el: "Καλωσόρισμα CEO" },
-    speakers: [
-      {
-        name: { en: "Vassilis Kazas", el: "Βασίλης Καζάς" },
-        role: {
-          en: "Managing Partner, Grant Thornton",
-          el: "Διευθύνων Σύμβουλος, Grant Thornton",
-        },
-      },
-    ],
+    title: { en: "CEO Welcome", el: "CEO Welcome" },
+    speakers: [{
+      name: { en: "Vassilis Kazas", el: "Βασίλης Καζάς" },
+      role: { en: "Managing Partner, Grant Thornton", el: "Διευθύνων Σύμβουλος, Grant Thornton" },
+    }],
   },
   {
     time: "18:40",
-    title: { en: "Opening Address", el: "Εναρκτήρια Ομιλία" },
-    speakers: [
-      {
-        name: { en: "Kyriakos Pierrakakis", el: "Κυριάκος Πιερρακάκης" },
-        role: {
-          en: "Minister of Economy and Finance",
-          el: "Υπουργός Εθνικής Οικονομίας και Οικονομικών",
-        },
+    title: { en: "Opening Address", el: "Opening Address" },
+    speakers: [{
+      name: { en: "Kyriakos Pierrakakis", el: "Κυριάκος Πιερρακάκης" },
+      role: {
+        en: "Minister of Economy and Finance of the Hellenic Republic & President of the Eurogroup",
+        el: "Υπουργός Εθνικής Οικονομίας και Οικονομικών & Πρόεδρος του Eurogroup",
       },
-    ],
+    }],
   },
   {
     time: "18:55",
-    title: {
-      en: "Technology & Beyond: The Future Advantage",
-      el: "Technology & Beyond: The Future Advantage",
-    },
+    title: { en: "Technology & Beyond: The Future Advantage", el: "Technology & Beyond: The Future Advantage" },
     note: {
-      en: "Based on Grant Thornton's Technology Survey 2026",
-      el: "Βασισμένο στο Technology Survey 2026 της Grant Thornton",
+      en: "based on Grant Thornton’s Technology Survey 2026",
+      el: "based on Grant Thornton’s Technology Survey 2026",
     },
-    speakers: [
-      {
-        name: { en: "Stella Angelopoulou", el: "Στέλλα Αγγελοπούλου" },
-        role: {
-          en: "Partner, Head of Technology, Grant Thornton",
-          el: "Partner, Head of Technology, Grant Thornton",
-        },
-      },
-    ],
+    speakers: [{
+      name: { en: "Stella Angelopoulou", el: "Στέλλα Αγγελοπούλου" },
+      role: { en: "Partner, Head of Technology, Grant Thornton", el: "Partner, Head of Technology, Grant Thornton" },
+    }],
   },
   {
     time: "19:10",
     title: {
-      en: "Discussion Circle: Accelerating Greek Entrepreneurship | The AI Challenge",
-      el: "Discussion Circle: Accelerating Greek Entrepreneurship | The AI Challenge",
+      en: "Discussion Circle: “Accelerating Greek Entrepreneurship | The Next AI Frontier”",
+      el: "Discussion Circle: “Accelerating Greek Entrepreneurship | The Next AI Frontier”",
     },
     speakers: [
       {
         name: { en: "Spyros Theodoropoulos", el: "Σπύρος Θεοδωρόπουλος" },
         role: {
-          en: "Chairman of the Board of Directors of SEV Hellenic Federation of Enterprises & President & CEO, Bespoke SGA Holdings S.A.",
-          el: "Πρόεδρος του Δ.Σ. του ΣΕΒ Σύνδεσμος Επιχειρήσεων και Βιομηχανιών & Πρόεδρος και Διευθύνων Σύμβουλος, Bespoke SGA Holdings A.E.",
+          en: "President & CEO, Bespoke SGA Holdings S.A. & Chairman of the Board of Directors of SEV Hellenic Federation of Enterprises",
+          el: "Πρόεδρος & Διευθύνων Σύμβουλος, Bespoke SGA Holdings Α.Ε. & Πρόεδρος του Δ.Σ. του ΣΕΒ Σύνδεσμος Επιχειρήσεων και Βιομηχανιών",
         },
       },
       {
         name: { en: "Agapi Sbokou", el: "Αγάπη Σμπώκου" },
         role: {
-          en: "President, SETE & CEO, PHĀEA",
-          el: "Πρόεδρος Δ.Σ., ΣΕΤΕ & Διευθύνουσα Σύμβουλος, PHĀEA",
+          en: "President, SETE, CEO, PHAEA",
+          el: "Πρόεδρος, ΣΕΤΕ & Διευθύνουσα Σύμβουλος, PHAEA",
         },
       },
       {
-        name: { en: "Theodore Fessas", el: "Θεόδωρος Φέσσας" },
-        role: { en: "Chairman, Quest Group", el: "Πρόεδρος Δ.Σ., Quest Group" },
+        name: { en: "Theodoros Fessas", el: "Θεόδωρος Φέσσας" },
+        role: {
+          en: "Chairman Quest Group, Quest Holdings",
+          el: "Πρόεδρος Δ.Σ., QUEST GROUP, QUEST ΣΥΜΜΕΤΟΧΩΝ",
+        },
       },
     ],
   },
   {
     time: "19:45",
     title: {
-      en: "Future Advantage | Industry Insights by Greek Entrepreneurs (tba)",
-      el: "Future Advantage | Industry Insights by Greek Entrepreneurs (tba)",
+      en: "Future Advantage | Industry Insight by:",
+      el: "Future Advantage | Industry Insight by:",
     },
     note: { en: "Video Address", el: "Video Address" },
+    speakers: [
+      {
+        name: { en: "Minas Liarokapis", el: "Μηνάς Λιαροκάπης" },
+        role: { en: "CEO, Acumino Inc (tbc)", el: "Διευθύνων Σύμβουλος, Acumino Inc (tbc)" },
+      },
+      {
+        name: { en: "Stratos Molyviatis", el: "Στράτος Μολυβιάτης" },
+        role: {
+          en: "Group Chief Operating Officer at National Bank of Greece (tbc)",
+          el: "Γενικός Διευθυντής Λειτουργικής Στήριξης της Εθνικής Τράπεζας (tbc)",
+        },
+      },
+      {
+        name: { en: "Vardis Vardinogiannis", el: "Βαρδής Ι. Βαρδινογιάννης" },
+        role: { en: "CEO, Couch Heroes (tbc)", el: "CEO, Couch Heroes (tbc)" },
+      },
+      {
+        name: { en: "Speaker 1", el: "Ομιλητής 1" },
+        role: { en: "E80 Group (tbc)", el: "E80 Group (tbc)" },
+      },
+    ],
   },
   {
     time: "20:00",
     title: {
-      en: "Discussion with Prime Minister Kyriakos Mitsotakis on AI, Human Impact, and the Future of Society",
+      en: "Discussion with Prime Minister Kyriakos Mitsotakis on AI, People and the Future of Society",
       el: "Συζήτηση με τον Πρωθυπουργό κ. Κυριάκο Μητσοτάκη για την Τεχνητή Νοημοσύνη, τον Άνθρωπο και το Μέλλον της Κοινωνίας",
     },
     speakers: [
@@ -124,17 +129,11 @@ const AGENDA: AgendaItem[] = [
       },
       {
         name: { en: "Dr. Nikolaos Karamouzis", el: "Δρ. Νικόλαος Καραμούζης" },
-        role: {
-          en: "President, Grant Thornton Consulting",
-          el: "Πρόεδρος, Grant Thornton Consulting",
-        },
+        role: { en: "President, Grant Thornton Consulting", el: "Πρόεδρος, Grant Thornton Consulting" },
       },
       {
         name: { en: "Vassilis Kazas", el: "Βασίλης Καζάς" },
-        role: {
-          en: "Managing Partner, Grant Thornton",
-          el: "Διευθύνων Σύμβουλος, Grant Thornton",
-        },
+        role: { en: "Managing Partner, Grant Thornton", el: "Διευθύνων Σύμβουλος, Grant Thornton" },
       },
     ],
   },
@@ -150,7 +149,6 @@ export default function AgendaScreen() {
   const locale: "en" | "el" = i18n.language.toLowerCase().startsWith("el")
     ? "el"
     : "en";
-  const agendaSource = getTenantAgendaSource(locale);
   const hasBackgroundArt = Boolean(getTenantBackgroundSource("secondary"));
 
   return (
@@ -212,19 +210,7 @@ export default function AgendaScreen() {
           {t("futureUnfold.coordinator")}
         </ThemedText>
 
-        {agendaSource && (
-          <View style={styles.creativeSection}>
-            <ThemedText style={styles.creativeTitle}>
-              {t("futureUnfold.officialCreative")}
-            </ThemedText>
-            <Image
-              source={agendaSource}
-              style={[styles.creative, { width: width - 32, height: (width - 32) * (9 / 16) }]}
-              contentFit="contain"
-              accessibilityLabel={t("futureUnfold.officialCreative")}
-            />
-          </View>
-        )}
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -284,8 +270,5 @@ function createStyles(colors: any) {
       fontStyle: "italic",
       color: colors.textSecondary,
     },
-    creativeSection: { marginTop: 32 },
-    creativeTitle: { marginBottom: 12, fontSize: 18, fontWeight: "700", color: colors.text },
-    creative: { borderRadius: 12, backgroundColor: colors.cardBackground },
   });
 }
